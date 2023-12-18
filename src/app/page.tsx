@@ -17,7 +17,13 @@ import { Link } from '@chakra-ui/next-js';
 export default function Page() {
   return (
     <>
-      <Container maxW="container.xl" p={0}>
+      <Container
+        maxW="container.xl"
+        minH="100vh"
+        p={0}
+        display="flex"
+        flexDirection="column"
+        h="100%">
         {/* Header Section */}
         <Box as="header" bg="blue.600" color="white" py={4}>
           <Container maxW="container.xl">
@@ -33,7 +39,7 @@ export default function Page() {
         </Box>
 
         {/* Main Content */}
-        <VStack spacing={8} py={10}>
+        <VStack spacing={8} py={10} flexGrow={1} h="100%" bg="blue.50">
           <Heading>Welcome to Our Service</Heading>
           <Text fontSize="xl">
             Here's a simple description of what we do. Enjoy browsing our site!
