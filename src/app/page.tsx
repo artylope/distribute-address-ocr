@@ -26,23 +26,18 @@ export default function Page() {
             <Text>DistributeSG Address OCR Demo App</Text>
           </Container>
         </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"></Box>
+
         <Box
           display="flex"
           flexGrow="1"
-          h="100%"
           bg="white"
           py="4"
           overflow="hidden"
           flexDirection="column"
-          justifyContent="center"
+          justifyContent="flex-start"
           alignItems="center">
           <Container
-            h="100%"
+            maxH={800}
             maxW="container.xl"
             display="flex"
             flexGrow="1"
@@ -55,15 +50,17 @@ export default function Page() {
             />
           </Container>
         </Box>
-        <Container maxW="container.xl" bg="gray.100">
-          {recognizedText ? (
-            <Text align="center" mt={4}>
-              {recognizedText}
-            </Text>
-          ) : (
-            ''
-          )}
-        </Container>
+        <Box>
+          <Container h={24} maxW="container.xl">
+            {recognizedText ? (
+              <Text align="center" mt={4}>
+                {recognizedText}
+              </Text>
+            ) : (
+              ''
+            )}
+          </Container>
+        </Box>
         <Box bg="gray.50" py="4">
           <Container maxW="container.xl">
             <Text>Artylope</Text>

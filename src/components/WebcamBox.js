@@ -53,9 +53,7 @@ const WebcamBox = ({ recognizedText, setRecognizedText }) => {
   return (
     <Box
       w="100%"
-      h="100%"
       maxW="container.2xl"
-      maxH="640"
       bg="black"
       rounded="md"
       position="relative"
