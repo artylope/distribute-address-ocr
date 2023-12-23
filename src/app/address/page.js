@@ -74,7 +74,10 @@ const page = () => {
       setParsedAddress({
         Block: block || '',
         PostalCode: postal || '',
-        RoadName: road || '',
+        RoadName:
+          road.replace(/(^\w{1})|(\s+\w{1})/g, (letter) =>
+            letter.toUpperCase()
+          ) || '',
         Floor: floor || '',
         Unit: unit || '',
       });
