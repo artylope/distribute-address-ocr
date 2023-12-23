@@ -4,8 +4,9 @@ import Webcam from 'react-webcam';
 import Tesseract from 'tesseract.js';
 
 import { PlayCircle, PauseCircle } from '@phosphor-icons/react';
+import { relative } from 'path';
 
-const WebcamBox = ({ recognizedText, setRecognizedText }) => {
+const WebcamBox = ({ recognizedText, setRecognizedText, photo, setPhoto }) => {
   const webcamRef = useRef(null);
   const [isCameraOn, setIsCameraOn] = useState(false);
 
@@ -68,6 +69,7 @@ const WebcamBox = ({ recognizedText, setRecognizedText }) => {
           ref={webcamRef}
           screenshotFormat="image/jpeg"
           videoConstraints={videoConstraints}
+          screenshotQuality={1}
           width={640} // Set the desired width (double the height for 3:2 aspect ratio)
           height={480} // Set the desired height
           style={{
@@ -76,8 +78,18 @@ const WebcamBox = ({ recognizedText, setRecognizedText }) => {
             alignItems: 'center',
             scale: 1.35,
             flexGrow: 1,
-          }}
-        />
+            position: 'relative',
+          }}>
+          {({ getScreenshot }) => (
+            <Button
+              onClick={() => {
+                let screenshot = getScreenshot();
+                setPhoto(screenshot);
+              }}>
+              Capture photo
+            </Button>
+          )}
+        </Webcam>
       ) : (
         ''
       )}

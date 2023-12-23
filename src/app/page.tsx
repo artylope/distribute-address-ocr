@@ -1,6 +1,7 @@
 // app/page.tsx
 'use client';
 import React, { useState } from 'react';
+import Image from 'next/image';
 import {
   Container,
   Box,
@@ -18,6 +19,7 @@ import { Link } from '@chakra-ui/next-js';
 
 export default function Page() {
   const [recognizedText, setRecognizedText] = useState('');
+  const [photo, setPhoto] = useState(null);
   return (
     <>
       <Box minH="100vh" display="flex" flexDirection="column">
@@ -47,10 +49,21 @@ export default function Page() {
             <WebcamBox
               recognizedText={recognizedText}
               setRecognizedText={setRecognizedText}
+              photo={photo}
+              setPhoto={setPhoto}
             />
           </Container>
         </Box>
         <Box>
+          <Container h={24} maxW="container.xl">
+            {photo ? (
+              <Box w={36}>
+                <img src={photo} />
+              </Box>
+            ) : (
+              ''
+            )}
+          </Container>
           <Container h={24} maxW="container.xl">
             {recognizedText ? (
               <Text align="center" mt={4}>
