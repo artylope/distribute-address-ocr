@@ -55,14 +55,15 @@ const WebcamBox = ({ recognizedText, setRecognizedText }) => {
       w="100%"
       h="100%"
       maxW="container.2xl"
-      maxH="container.2xl"
+      maxH="640"
       bg="black"
       rounded="md"
       position="relative"
       display="flex"
       justifyContent="center"
       alignItems="center"
-      overflow="hidden">
+      overflow="hidden"
+      flexGrow="1">
       {isCameraOn ? (
         <Webcam
           audio={false}

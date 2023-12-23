@@ -30,21 +30,22 @@ export default function Page() {
           display="flex"
           flexDirection="column"
           justifyContent="center"
+          alignItems="center"></Box>
+        <Box
+          display="flex"
+          flexGrow="1"
+          h="100%"
+          bg="white"
+          py="4"
+          overflow="hidden"
+          flexDirection="column"
+          justifyContent="center"
           alignItems="center">
-          <Container maxW="container.xl" h={16}>
-            {recognizedText ? (
-              <Text align="center" mt={4}>
-                {recognizedText}
-              </Text>
-            ) : (
-              ''
-            )}
-          </Container>
-        </Box>
-        <Box display="flex" flexGrow="1" bg="white" py="4">
           <Container
+            h="100%"
             maxW="container.xl"
             display="flex"
+            flexGrow="1"
             flexDirection="column"
             justifyContent="center"
             alignItems="center">
@@ -54,6 +55,15 @@ export default function Page() {
             />
           </Container>
         </Box>
+        <Container maxW="container.xl" bg="gray.100">
+          {recognizedText ? (
+            <Text align="center" mt={4}>
+              {recognizedText}
+            </Text>
+          ) : (
+            ''
+          )}
+        </Container>
         <Box bg="gray.50" py="4">
           <Container maxW="container.xl">
             <Text>Artylope</Text>
