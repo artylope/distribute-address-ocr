@@ -26,6 +26,21 @@ export default function Page() {
             <Text>DistributeSG Address OCR Demo App</Text>
           </Container>
         </Box>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center">
+          <Container maxW="container.xl" h={16}>
+            {recognizedText ? (
+              <Text align="center" mt={4}>
+                {recognizedText}
+              </Text>
+            ) : (
+              ''
+            )}
+          </Container>
+        </Box>
         <Box display="flex" flexGrow="1" bg="white" py="4">
           <Container
             maxW="container.xl"
@@ -37,11 +52,6 @@ export default function Page() {
               recognizedText={recognizedText}
               setRecognizedText={setRecognizedText}
             />
-            <Box>
-              <Box h={16}>
-                {recognizedText ? <Text mt={4}>{recognizedText}</Text> : ''}
-              </Box>
-            </Box>
           </Container>
         </Box>
         <Box bg="gray.50" py="4">
