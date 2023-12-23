@@ -46,6 +46,10 @@ const WebcamBox = ({ recognizedText, setRecognizedText }) => {
     }
   }, [isCameraOn]);
 
+  const videoConstraints = {
+    facingMode: 'environment' || 'user',
+  };
+
   return (
     <Box
       w={480}
@@ -62,6 +66,7 @@ const WebcamBox = ({ recognizedText, setRecognizedText }) => {
           audio={false}
           ref={webcamRef}
           screenshotFormat="image/jpeg"
+          videoConstraints={videoConstraints}
           width={640} // Set the desired width (double the height for 3:2 aspect ratio)
           height={480} // Set the desired height
           style={{
