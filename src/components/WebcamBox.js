@@ -3,7 +3,7 @@ import { Box, IconButton, Button, Text } from '@chakra-ui/react';
 import Webcam from 'react-webcam';
 import Tesseract from 'tesseract.js';
 
-import { PlayCircle, PauseCircle } from '@phosphor-icons/react';
+import { PlayCircle, PauseCircle, Camera } from '@phosphor-icons/react';
 import { relative } from 'path';
 
 const WebcamBox = ({ recognizedText, setRecognizedText, photo, setPhoto }) => {
@@ -81,13 +81,27 @@ const WebcamBox = ({ recognizedText, setRecognizedText, photo, setPhoto }) => {
             position: 'relative',
           }}>
           {({ getScreenshot }) => (
-            <Button
+            <Box
+              position="absolute"
+              bottom="0"
+              h={200}
+              w={200}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
               onClick={() => {
                 let screenshot = getScreenshot();
                 setPhoto(screenshot);
               }}>
-              Capture photo
-            </Button>
+              {' '}
+              <IconButton
+                variant="ghost"
+                colorScheme="white"
+                aria-label="Capture photo"
+                size="2xl"
+                icon={<Camera size={36} weight="bold" color="white" />}
+              />
+            </Box>
           )}
         </Webcam>
       ) : (
