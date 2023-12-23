@@ -22,7 +22,7 @@ export default function Page() {
       <Box minH="100vh" display="flex" flexDirection="column">
         <Box bg="gray.50" py="4">
           <Container maxW="container.xl">
-            <Text>Header</Text>
+            <Text>DistributeSG Address OCR Demo App</Text>
           </Container>
         </Box>
         <Box display="flex" flexGrow="1" bg="white" py="4">
@@ -36,7 +36,7 @@ export default function Page() {
         </Box>
         <Box bg="gray.50" py="4">
           <Container maxW="container.xl">
-            <Text>Footer</Text>
+            <Text>Artylope</Text>
           </Container>
         </Box>
       </Box>
