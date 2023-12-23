@@ -1,6 +1,8 @@
 // app/page.tsx
 'use client';
 
+import Webcam from 'react-webcam';
+
 import {
   Container,
   Box,
@@ -25,6 +27,7 @@ export default function Page() {
         </Box>
         <Box display="flex" flexGrow="1" bg="white" py="4">
           <Container maxW="container.xl">
+            <Webcam />
             <Text>Body</Text>
           </Container>
         </Box>
