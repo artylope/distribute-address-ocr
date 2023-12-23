@@ -26,45 +26,67 @@ const WebcamBox = () => {
   return (
     <Box
       w={480}
-      h={360}
+      h={480}
       bg="black"
       rounded="md"
       position="relative"
       display="flex"
       justifyContent="center"
-      alignItems="center">
+      alignItems="center"
+      overflow="hidden">
       {isCameraOn ? (
         <Webcam
           audio={false}
           ref={webcamRef}
           screenshotFormat="image/jpeg"
-          width={480}
-          height={360}
+          width={640} // Set the desired width (double the height for 3:2 aspect ratio)
+          height={480} // Set the desired height
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            scale: 1.35,
+          }}
         />
       ) : (
         ''
       )}
       {isCameraOn ? (
-        <Box position="absolute" top="0" right="0">
+        <Box
+          position="absolute"
+          top="0"
+          right="0"
+          h={16}
+          w={16}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          onClick={isCameraOn ? stopCamera : startCamera}>
           {' '}
           <IconButton
             variant="ghost"
             colorScheme="white"
             aria-label="Start Camera"
-            size="lg"
-            icon={<PauseCircle size={32} weight="bold" color="white" />}
-            onClick={isCameraOn ? stopCamera : startCamera}
+            size="2xl"
+            icon={<PauseCircle size={36} weight="bold" color="white" />}
           />
         </Box>
       ) : (
-        <IconButton
-          variant="ghost"
-          colorScheme="white"
-          aria-label="Start Camera"
-          size="lg"
-          icon={<PlayCircle size={32} weight="bold" color="white" />}
-          onClick={isCameraOn ? stopCamera : startCamera}
-        />
+        <Box
+          h={16}
+          w={16}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          onClick={isCameraOn ? stopCamera : startCamera}>
+          <IconButton
+            variant="ghost"
+            colorScheme="white"
+            aria-label="Start Camera"
+            size="2xl"
+            icon={<PlayCircle size={36} weight="bold" color="white" />}
+          />{' '}
+        </Box>
       )}
     </Box>
   );
