@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react';
-import { Box, IconButton, Button } from '@chakra-ui/react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Box, IconButton, Button, Text } from '@chakra-ui/react';
 import Webcam from 'react-webcam';
+import Tesseract from 'tesseract.js';
 
 import { PlayCircle, PauseCircle } from '@phosphor-icons/react';
 
-const WebcamBox = () => {
+const WebcamBox = ({ recognizedText, setRecognizedText }) => {
   const webcamRef = useRef(null);
   const [isCameraOn, setIsCameraOn] = useState(false);
 
@@ -22,6 +23,28 @@ const WebcamBox = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (isCameraOn) {
+      const intervalId = setInterval(() => {
+        if (webcamRef.current) {
+          const canvas = webcamRef.current.getCanvas();
+          if (canvas) {
+            Tesseract.recognize(canvas)
+              .then(({ data: { text } }) => {
+                setRecognizedText(text);
+              })
+              .catch((error) => {
+                console.error('Error recognizing text:', error);
+              });
+          }
+        }
+      }, 2000); // Adjust the interval as needed
+      return () => clearInterval(intervalId);
+    } else {
+      setRecognizedText('');
+    }
+  }, [isCameraOn]);
 
   return (
     <Box
