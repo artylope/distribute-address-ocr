@@ -18,19 +18,19 @@ export default function Page() {
   return (
     <>
       <Box minH="100vh" display="flex" flexDirection="column">
-        <Box bg="blue.100">
+        <Box bg="gray.50" py="4">
           <Container maxW="container.xl">
-            <Text>fdslfdsf ksfhksdjfkjd esifhudhfksdh</Text>
+            <Text>Header</Text>
           </Container>
         </Box>
-        <Box display="flex" flexGrow="1" bg="blue.200">
+        <Box display="flex" flexGrow="1" bg="white" py="4">
           <Container maxW="container.xl">
-            <Text>fdslfdsf ksfhksdjfkjd esifhudhfksdh</Text>
+            <Text>Body</Text>
           </Container>
         </Box>
-        <Box bg="blue.100">
+        <Box bg="gray.50" py="4">
           <Container maxW="container.xl">
-            <Text>fdslfdsf ksfhksdjfkjd esifhudhfksdh</Text>
+            <Text>Footer</Text>
           </Container>
         </Box>
       </Box>
