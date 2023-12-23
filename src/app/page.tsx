@@ -57,8 +57,12 @@ export default function Page() {
         <Box>
           <Container h={24} maxW="container.xl">
             {photo ? (
-              <Box w={36}>
-                <img src={photo} />
+              <Box
+                w={36}
+                display="flex"
+                justifyContent="center"
+                alignItems="center">
+                <img src={photo} alt="photo taken by camera" />
               </Box>
             ) : (
               ''
