@@ -70,9 +70,11 @@ export default function Page() {
           </Container>
           <Container h={24} maxW="container.xl">
             {recognizedText ? (
-              <Text align="center" mt={4}>
-                {recognizedText}
-              </Text>
+              <Box>
+                <Text align="center" mt={4}>
+                  {recognizedText}
+                </Text>
+              </Box>
             ) : (
               ''
             )}

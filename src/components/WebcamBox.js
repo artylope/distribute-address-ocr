@@ -33,6 +33,8 @@ const WebcamBox = ({ recognizedText, setRecognizedText, photo, setPhoto }) => {
           if (canvas) {
             Tesseract.recognize(canvas)
               .then(({ data: { text } }) => {
+                console.log('cam on');
+                console.log(text);
                 setRecognizedText(text);
               })
               .catch((error) => {

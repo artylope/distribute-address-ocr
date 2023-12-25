@@ -13,7 +13,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-const page = () => {
+const Page = () => {
   const [addressString, setAddressString] = useState('');
   const [parsedAddress, setParsedAddress] = useState({
     blockNumber: '',
@@ -121,4 +121,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
