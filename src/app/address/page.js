@@ -1,5 +1,7 @@
 'use client';
 import React, { useState } from 'react';
+import { Link } from '@chakra-ui/next-js';
+
 import {
   Container,
   Box,
@@ -90,6 +92,11 @@ const Page = () => {
 
   return (
     <Box>
+      <Container>
+        <Link color="teal.500" href="/">
+          Back to OCR Demo
+        </Link>
+      </Container>
       <Container maxW="container.xl" py="4">
         <VStack spacing={4}>
           <Textarea

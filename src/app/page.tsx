@@ -1,6 +1,7 @@
 // app/page.tsx
 'use client';
 import React, { useState } from 'react';
+
 import Image from 'next/image';
 import {
   Container,
@@ -24,8 +25,14 @@ export default function Page() {
     <>
       <Box minH="100vh" display="flex" flexDirection="column">
         <Box bg="gray.50" py="4">
-          <Container maxW="container.xl">
+          <Container
+            maxW="container.xl"
+            display="flex"
+            justifyContent="space-between">
             <Text>DistributeSG Address OCR Demo App</Text>
+            <Link color="teal.500" href="/address">
+              Address Parser
+            </Link>
           </Container>
         </Box>
 
