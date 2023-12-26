@@ -86,8 +86,8 @@ const WebcamBox = ({ recognizedText, setRecognizedText, photo, setPhoto }) => {
             <Box
               position="absolute"
               bottom="0"
-              h={48}
-              w={48}
+              h={24}
+              w={24}
               display="flex"
               justifyContent="center"
               alignItems="center"

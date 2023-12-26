@@ -48,7 +48,7 @@ const Page = () => {
 
   function extractRoadName(address) {
     const pattern =
-      /(?:\d+[A-Za-z]?|\bblk\b|\bBLOCK\b|\bapt\b|\bAPT\b)\s+([\w\s]+?)(?:\s+#|\s+\d{2}-\d{2}|\s+S?\d{6}|$)/i;
+      /(?:\bblk\b|\bBLOCK\b|\bapt\b|\bAPT\b)?\s*\d+[A-Za-z]?\s+([\w\s]+?)(?:\s+#|\s+\d{2}-\d{2}|\s+S?\d{6}|$)/i;
     const match = address.match(pattern);
     return match ? match[1].trim() : null;
   }
