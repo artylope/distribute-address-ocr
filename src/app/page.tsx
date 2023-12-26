@@ -64,7 +64,7 @@ export default function Page() {
           justifyContent="flex-start"
           alignItems="center">
           <Container
-            maxH={800}
+            maxH={480}
             maxW="container.xl"
             display="flex"
             flexGrow="1"
