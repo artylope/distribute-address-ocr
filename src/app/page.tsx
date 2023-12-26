@@ -1,6 +1,6 @@
 // app/page.tsx
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 import {
@@ -12,6 +12,7 @@ import {
   VStack,
   HStack,
   Spacer,
+  useEditable,
 } from '@chakra-ui/react';
 
 import WebcamBox from '@/components/WebcamBox';
@@ -20,7 +21,24 @@ import { Link } from '@chakra-ui/next-js';
 
 export default function Page() {
   const [recognizedText, setRecognizedText] = useState('');
+  const [address, setAddress] = useState('');
   const [photo, setPhoto] = useState(null);
+
+  function extractAddress(ocrText) {
+    // Regular expression for the address
+    const regex = /Blk\s+\d+\s+\w+(\s+\w+)*\s+#\d+-\d+\s+Singapore\s+\d{6}/;
+
+    // Searching for the pattern in the text
+    const match = ocrText.match(regex);
+
+    // Returning the found address or null if no match is found
+    return match ? match[0] : null;
+  }
+
+  useEffect(() => {
+    setAddress(extractAddress(recognizedText));
+  }, [recognizedText]);
+
   return (
     <>
       <Box minH="100vh" display="flex" flexDirection="column">
@@ -71,6 +89,15 @@ export default function Page() {
               <Box display="flex" flexGrow="1">
                 <Text align="center" mt={4}>
                   {recognizedText}
+                </Text>
+              </Box>
+            ) : (
+              ''
+            )}
+            {address ? (
+              <Box display="flex" flexGrow="1">
+                <Text align="center" mt={4}>
+                  {address}
                 </Text>
               </Box>
             ) : (
