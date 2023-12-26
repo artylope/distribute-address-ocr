@@ -52,9 +52,10 @@ const Page = () => {
   }
 
   function extractFloorNumber(address) {
-    const pattern = /(?:#)?(\d+)[-/B]?/;
+    // Updated pattern to capture floor number after '#' and before a dash or 'B'
+    const pattern = /#(\d+)[-/B]?/;
     const match = address.match(pattern);
-    return match ? match[1] : null; // match[1] for the floor number
+    return match ? match[1] : null;
   }
 
   function extractUnitNumber(address) {
