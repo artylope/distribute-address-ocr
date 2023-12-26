@@ -55,7 +55,22 @@ export default function Page() {
           </Container>
         </Box>
         <Box>
-          <Container h={24} maxW="container.xl">
+          <Container
+            display="flex"
+            justifyContent="flex-start"
+            minH={4}
+            maxW="container.xl">
+            {recognizedText ? (
+              <Box display="flex" flexGrow="1">
+                <Text align="center" mt={4}>
+                  {recognizedText}
+                </Text>
+              </Box>
+            ) : (
+              ''
+            )}
+          </Container>
+          <Container maxW="container.xl" minH="12">
             {photo ? (
               <Box
                 w={36}
@@ -63,17 +78,6 @@ export default function Page() {
                 justifyContent="center"
                 alignItems="center">
                 <img src={photo} alt="photo taken by camera" />
-              </Box>
-            ) : (
-              ''
-            )}
-          </Container>
-          <Container h={24} maxW="container.xl">
-            {recognizedText ? (
-              <Box>
-                <Text align="center" mt={4}>
-                  {recognizedText}
-                </Text>
               </Box>
             ) : (
               ''
