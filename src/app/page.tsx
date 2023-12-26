@@ -24,7 +24,7 @@ export default function Page() {
   const [address, setAddress] = useState('');
   const [photo, setPhoto] = useState(null);
 
-  function extractAddress(ocrText) {
+  function extractAddress(ocrText: string) {
     // Regular expression for the address
     const regex = /Blk\s+\d+\s+\w+(\s+\w+)*\s+#\d+-\d+\s+Singapore\s+\d{6}/;
 
@@ -32,11 +32,12 @@ export default function Page() {
     const match = ocrText.match(regex);
 
     // Returning the found address or null if no match is found
-    return match ? match[0] : null;
+    return match ? match[0] : '';
   }
 
   useEffect(() => {
-    setAddress(extractAddress(recognizedText));
+    const newAddress = extractAddress(recognizedText);
+    setAddress(newAddress);
   }, [recognizedText]);
 
   return (
